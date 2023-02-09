@@ -1,0 +1,29 @@
+﻿
+将“row”重命名为“x”:
+--------------
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\chek.c(4, 6)
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\chek.c(9, 18)
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\chek.c(23, 18)
+
+将“col”重命名为“y”:
+--------------
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\chek.c(4, 8)
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\chek.c(11, 19)
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\chek.c(25, 19)
+
+将“ren”重命名为“count”:
+------------------
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\chek.c(7, 6)
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\chek.c(12, 5)
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\chek.c(14, 5)
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\chek.c(15, 8)
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\chek.c(21, 2)
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\chek.c(23, 3)
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\chek.c(26, 5)
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\chek.c(28, 5)
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\chek.c(29, 8)
+
+将“choose”重命名为“row”:
+-------------------
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\AI.c(6, 6)
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\AI.c(18, 6)

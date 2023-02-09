@@ -1,0 +1,17 @@
+﻿  zhu.c
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(199,10): warning C4047: “=”:“int *”与“int”的间接级别不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(200,10): warning C4047: “=”:“int *”与“int”的间接级别不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(189,24): warning C4101: “y2”: 未引用的局部变量
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(189,20): warning C4101: “y1”: 未引用的局部变量
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(189,12): warning C4101: “x1”: 未引用的局部变量
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(189,28): warning C4101: “lx”: 未引用的局部变量
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(189,16): warning C4101: “x2”: 未引用的局部变量
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(247,20): warning C4101: “j”: 未引用的局部变量
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(406,7): warning C4013: “jinru”未定义；假设外部返回 int
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(408,7): warning C4013: “youxi”未定义；假设外部返回 int
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(451,12): warning C4101: “e”: 未引用的局部变量
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(451,15): warning C4101: “f”: 未引用的局部变量
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(491,7): warning C4101: “m”: 未引用的局部变量
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(448): warning C4715: “jinru”: 不是所有的控件路径都返回值
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(545): warning C4715: “youxi”: 不是所有的控件路径都返回值
+  Project2.vcxproj -> C:\Users\abc\Desktop\新建文件夹\text-c\Project2\Debug\Project2.exe

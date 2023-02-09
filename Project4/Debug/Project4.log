@@ -1,0 +1,37 @@
+﻿  acllib.c
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\resource.h(2,1): warning C4005: “ICON_BIG”: 宏重定义
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\winuser.h(2627): message : 参见“ICON_BIG”的前一个定义
+  main.c
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\resource.h(2,1): warning C4005: “ICON_BIG”: 宏重定义
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\winuser.h(2627): message : 参见“ICON_BIG”的前一个定义
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(215,39): warning C4047: “函数”:“ACL_Image *”与“ACL_Image (*)[8]”的间接级别不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(215,36): warning C4024: “putImageScale”: 形参和实参 1 的类型不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(228,39): warning C4047: “函数”:“ACL_Image *”与“ACL_Image (*)[8]”的间接级别不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(228,36): warning C4024: “putImageScale”: 形参和实参 1 的类型不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(239,40): warning C4047: “函数”:“ACL_Image *”与“ACL_Image (*)[8]”的间接级别不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(239,32): warning C4024: “loadImage”: 形参和实参 2 的类型不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(240,44): warning C4047: “函数”:“ACL_Image *”与“ACL_Image (*)[8]”的间接级别不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(240,41): warning C4024: “loadImage”: 形参和实参 2 的类型不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(241,44): warning C4047: “函数”:“ACL_Image *”与“ACL_Image (*)[8]”的间接级别不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(241,41): warning C4024: “loadImage”: 形参和实参 2 的类型不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(242,44): warning C4047: “函数”:“ACL_Image *”与“ACL_Image (*)[8]”的间接级别不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(242,41): warning C4024: “loadImage”: 形参和实参 2 的类型不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(243,44): warning C4047: “函数”:“ACL_Image *”与“ACL_Image (*)[8]”的间接级别不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(243,41): warning C4024: “loadImage”: 形参和实参 2 的类型不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(244,44): warning C4047: “函数”:“ACL_Image *”与“ACL_Image (*)[8]”的间接级别不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(244,41): warning C4024: “loadImage”: 形参和实参 2 的类型不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(245,44): warning C4047: “函数”:“ACL_Image *”与“ACL_Image (*)[8]”的间接级别不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(245,41): warning C4024: “loadImage”: 形参和实参 2 的类型不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(246,44): warning C4047: “函数”:“ACL_Image *”与“ACL_Image (*)[8]”的间接级别不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(246,41): warning C4024: “loadImage”: 形参和实参 2 的类型不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(725,41): error C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(755,41): error C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(834,41): error C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(864,41): error C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(947,5): error C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(965,5): error C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(973,5): error C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(1002,5): error C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(1020,5): error C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+C:\Users\abc\Desktop\新建文件夹\text-c\Project4\main.c(1028,5): error C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+  正在生成代码...
