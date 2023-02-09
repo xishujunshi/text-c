@@ -183,62 +183,7 @@ void ChessScore()
 		}
 	}
 }
-void score(int* x, int* y)   //查找评分最高的坐标
-{
-	srand((unsigned)time(NULL));
-	int i, j, x1, x2, y1, y2, lx;
-	int Max = 0;
-	ChessScore();      //调用评分函数
-	for (i = 0; i < 15; i++)
-	{
-		for (j = 0; j < 15; j++)
-		{
-			if (Score[i][j] > Max)
-			{
-				Max = Score[i][j];  //获取所有点中，评分最高的
-				x = i;
-				y = j;
-			}
-		}
-	}
-	//x2 = x1;
-	//y2 = y1;
-	//for (i = 0; i < 15; i++)    //可能的话，有评分相同的多个点
-	//{
-	//	for (j = 0; j < 15; j++)
-	//	{
-	//		if (Score[i][j] == Max && i != x2 && j != y2)   //在这么多个相同分数的点中，随机找一个
-	//		{
-	//			lx = rand() % 10;
-	//			if (lx < 5)
-	//			{
-	//				x2 = i, y2 = j;
-	//				break;
-	//			}
-	//		}
-	//	}
-	//}
-	//if (x2 != x1 || y2 != y1)   //棋盘上有2个最高分
-	//{
-	//	lx = rand() % 10;    //随机一个
-	//	if (lx > 6)
-	//	{
-	//		*x = x1, * y = y1;
-	//	}
-	//	else
-	//	{
-	//		*x = x2, * y = y2;
-	//	}
-	//}
-	//else    //棋盘上只有一个最高分
-	//{
-	//	*x = x1, * y = y1;
-	//}
-	Max = 0;    //清空最大值
-	/*arr[x][y] = '*';*/       //记录这个点
-	//printpart(x, y, tp);    //打印出电脑AI落子
-	
-}
+
 char check(char arr[15][15], int x, int y, int a)
 {//行
 	char ch;

@@ -15,26 +15,20 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="check.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="AI.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="shuzhi.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="zhu.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="youxi.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="jinru.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="wuziqi.h">
       <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="1.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="gujia.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="jianzhi.c">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

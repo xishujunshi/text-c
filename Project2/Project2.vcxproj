@@ -139,12 +139,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AI.c" />
-    <ClCompile Include="jinru.c" />
-    <ClCompile Include="shuzhi.c" />
-    <ClCompile Include="check.c" />
+    <ClCompile Include="1.c" />
+    <ClCompile Include="gujia.c" />
+    <ClCompile Include="jianzhi.c" />
     <ClCompile Include="wuziqi.h" />
-    <ClCompile Include="youxi.c" />
     <ClCompile Include="zhu.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,2 +1,0 @@
-#define MAINICON 1100
-#define ICON_BIG 1101
