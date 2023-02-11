@@ -2,184 +2,89 @@
 #include<stdio.h>
 #include <stdlib.h>
 #include<time.h>
-#include "wuziqi.h"
+#include<memory.h>
 char arr[15][15] = { ' ' };
 int Score[15][15] = { 0 };
-void ChessScore()
+
+int dian()
 {
-	int x, y, i, j, k;      //循环变量
-	int number1 = 0, number2 = 0;   //number用来统计玩家或电脑棋子连成个数
-	int empty = 0;    //empty用来统计空点个数
+	memset(Score, 0, sizeof(Score));
+	evaluate();
+	int temp = 0;
+	int x, y;
 	for (int i = 0; i < 15; i++)
 	{
 		for (int j = 0; j < 15; j++)
 		{
-			Score[i][j] = 0;
+			if (temp < Score[i][j])
+			{
+				x = i; y = j;
+				temp = Score[i][j];
+			}
 		}
 	}
-	for (x = 0; x < 15; x++)
+	return x * 100 + y;
+}
+
+evaluate()
+{
+	int i, j;
+	for (i = 0; i < 15; i++)
 	{
-		for (y = 0; y < 15; y++)
+		int temp = 0, score = 0;
+		for (j = 0; j < 15; j++)
 		{
-			if (arr[x][y] == ' ')    //如果这个点为空
+			if (arr[i][j] == ' ')
 			{
-				for (i = -1; i <= 1; i++)
+				score = 0;
+				int row = 0, col = 0, pie = 0, na = 0;
+				//row
+				for (int m = i - 5; m < i + 5; m++)
 				{
-					for (j = -1; j <= 1; j++)   //判断8个方向
+					if (m < 0) { m = -1; continue; }
+					else if (m > 15) break;
+					if (arr[i][m] == '*') score += 2;
+					else if (arr[i][m] == ' ') score += 1;
+					else score -= 1;
+				}
+				//col
+				for (int m = j - 5; m < j + 5; m++)
+				{
+					if (m < 0) { m = -1; continue; }
+					else if (m > 15) break;
+					if (arr[m][j] == '*') score += 2;
+					else if (arr[m][j] == ' ') score += 1;
+					else score -= 1;
+				}
+				//na
+				for (int m = i - 5; m < i + 5; m++)
+				{
+					if (m < 0) { m = -1; continue; }
+					else if (m > 15) break;
+					for (int n = j - (i - m);;)
 					{
-						if (i != 0 || j != 0)   //若是都为0的话，那不就是原坐标嘛
-						{
-							//对玩家落点评分
-							for (k = 1; i <= 4; k++)   //循环4次
-							{
-								//这点没越界  且这点存在黑子（玩家）
-								if (x + k * i >= 0 && x + k * i <= 14 &&
-									y + k * j >= 0 && y + k * j <= 14 &&
-									arr[x + k * i][y + k * j] == 0)
-								{
-									number1++;
-								}
-								else if (arr[x + k * i][y + k * j] == ' ')     //这点是个空点，+1后退出
-								{
-									empty++;
-									break;
-								}
-								else                    //否则是墙或者对方的棋子了
-								{
-									break;
-								}
-							}
-							for (k = -1; k >= -4; k--)            //向它的相反方向判断
-							{
-								//这点没越界  且这点存在黑子（玩家）
-								if (x + k * i >= 0 && x + k * i <= 14 &&
-									y + k * j >= 0 && y + k * j <= 14 &&
-									arr[x + k * i][y + k * j] == 0)
-								{
-									number1++;
-								}
-								else if (arr[x + k * i][y + k * j] == ' ')     //这点是个空点，+1后退出
-								{
-									empty++;
-									break;
-								}
-								else
-								{
-									break;
-								}
-							}
-							if (number2 == 1)   //2个棋子
-							{
-								Score[x][y] += 1;
-							}
-							else if (number1 == 2)   //3个棋子
-							{
-								if (empty == 1)
-								{
-									Score[x][y] += 5;   //有一个空点+5分 死3
-								}
-								else if (empty == 2)
-								{
-									Score[x][y] += 10;  //有两个空点+10分 活3
-								}
-							}
-							else if (number1 == 3)   //4个棋子
-							{
-								if (empty == 1)
-								{
-									Score[x][y] += 20;  //有一个空点+20分 死4
-								}
-								else if (empty == 2)
-								{
-									Score[x][y] += 100;  //有2个空点+100分 活4
-								}
-							}
-							else if (number1 >= 4)
-							{
-								Score[x][y] += 1000;  //对方有5个棋子，分数要高点，先堵
-							}
-
-							empty = 0;   //统计空点个数的变量清零
-							//对电脑落点评分
-							for (k = 1; i <= 4; k++)   //循环4次
-							{
-								//这点没越界  且这点存在白子（电脑）
-								if (x + k * i >= 0 && x + k * i <= 14 &&
-									y + k * j >= 0 && y + k * j <= 14 &&
-									arr[x + k * i][y + k * j] == 1)
-								{
-									number2++;
-								}
-								else if (arr[x + k * i][y + k * j] == ' ')
-								{
-									empty++;
-									break;   //空点
-								}
-								else
-								{
-									break;
-								}
-							}
-							for (k = -1; k >= -4; k--)   //向它的相反方向判断
-							{
-								if (x + k * i >= 0 && x + k * i <= 14 &&
-									y + k * j >= 0 && y + k * j <= 14 &&
-									arr[x + k * i][y + k * j] == '*')
-								{
-									number2++;
-								}
-								else if (arr[x + k * i][y + k * j] == ' ')
-								{
-									empty++;
-									break;
-								}
-								else
-								{
-									break;   //注释与上面玩家版相同
-								}
-							}
-							if (number2 == 0)
-							{
-								Score[x][y] += 1;    //1个棋子
-							}
-							else if (number2 == 1)
-							{
-								Score[x][y] += 2;    //2个棋子
-							}
-							else if (number2 == 2)   //3个棋子
-							{
-								if (empty == 1)
-								{
-									Score[x][y] += 8;  //死3
-								}
-								else if (empty == 2)
-								{
-									Score[x][y] += 30;  //活3
-								}
-							}
-							else if (number2 == 3)   //4个棋子
-							{
-								if (empty == 1)
-								{
-									Score[x][y] += 50;   //死4
-								}
-								else if (empty == 2)
-								{
-									Score[x][y] += 200;   //活4
-								}
-							}
-							else if (number2 >= 4)
-							{
-								Score[x][y] += 10000;   //自己落在这点能形成5个，也就能胜利了，分数最高
-							}
-
-							number1 = 0;     //清零，以便下次重新统计
-							number2 = 0;
-							empty = 0;
-						}
+						if (arr[m][n] == '*') score += 2;
+						else if (arr[m][n] == ' ') score += 1;
+						else score -= 1;
+						break;
 					}
 				}
+				//pie
+				for (int m = i + 5; m > i - 5; m--)
+				{
+					if (m > 15) { m = 15; continue; }
+					else if (m < 0) break;
+					for (int n = j - (i - m);;)
+					{
+						if (arr[m][n] == '*') score += 2;
+						else if (arr[m][n] == ' ') score += 1;
+						else score -= 1;
+						break;
+					}
+				}
+				Score[i][j] = score;
 			}
+			else Score[i][j] = -1;
 		}
 	}
 }
@@ -341,6 +246,7 @@ char check(char arr[15][15], int x, int y, int a)
 	}
 	return 'p';
 }
+
 int main()
 {
 	for (int i = 0; i < 15; i++)
@@ -369,6 +275,7 @@ jixu:;
 	}
 	return 0;
 }
+
 jinru()
 {
 	int a;
@@ -391,6 +298,7 @@ jinru()
 		} while (a);
 	}
 }
+
 youxi()
 {
 	int a, b, e, f;
@@ -430,32 +338,13 @@ youxi()
 		}
 
 		//电脑下
-		int q = 0, p = 0;
-		int* w = &q;
-		int* r = &p;
-		int m;
-		void score(w, r);
-		//arr[q][p] = '*';
-		/*if (num < 2)
-		{
-			q = rand() % 5 + 5;
-			p = rand() % 5 + 5;
-			while (arr[q][p] == '*' || arr[q][p] == '#')
-			{
-				q = rand(time(NULL)) % 5 + 5;
-				p = rand(time(NULL)) % 5 + 5;
-			}
-			arr[q][p] = '*';
-			num++;
-		}
-		else
-		{
-			m = quanzhong(arr);
-			p = m - m / 100 * 100;
-			q = m / 100;
-		}*/
+		int c = dian();
+		int q , p;
+		q = c - c / 100 * 100;
+		p = c / 100;
+		arr[p][q] = '*';
 		f = 0;
-		if (check(arr, q, p, f) == 'o')
+		if (check(arr, p, q, f) == 'o')
 		{
 			printf("电脑赢了\n");
 			goto out;

@@ -139,9 +139,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="1.c" />
-    <ClCompile Include="gujia.c" />
-    <ClCompile Include="jianzhi.c" />
     <ClCompile Include="wuziqi.h" />
     <ClCompile Include="zhu.c" />
   </ItemGroup>
