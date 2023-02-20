@@ -1,6 +1,0 @@
-﻿  zhizhen.c
-C:\Users\abc\Desktop\新建文件夹\text-c\1.27\zhizhen.c(7,9): warning C4477: “printf”: 格式字符串“%s”需要类型“char *”的参数，但可变参数 1 拥有了类型“int”
-C:\Users\abc\Desktop\新建文件夹\text-c\1.27\zhizhen.c(8,9): warning C4477: “printf”: 格式字符串“%s”需要类型“char *”的参数，但可变参数 1 拥有了类型“int”
-C:\Users\abc\Desktop\新建文件夹\text-c\1.27\zhizhen.c(5,1): warning C4133: “初始化”: 从“char [5]”到“int *”的类型不兼容
-C:\Users\abc\Desktop\新建文件夹\text-c\1.27\zhizhen.c(6,1): warning C4047: “初始化”:“int (*)[10]”与“int **”的间接级别不同
-  1.27.vcxproj -> C:\Users\abc\Desktop\新建文件夹\text-c\1.27\Debug\1.27.exe

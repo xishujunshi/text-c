@@ -6,20 +6,88 @@
 char arr[15][15] = { ' ' };
 int Score[15][15] = { 0 };
 
+jilu(int m)
+{
+	FILE* fp;
+	if (m = 1)
+	{
+		if ((fp = fopen("score.txt", "w")) == NULL)
+		{
+			printf("Open error...");
+			return;
+		}
+	}
+	else
+		fp = fopen("score.txt", "a+");
+	fprintf(fp, "第%d次", m);
+	fprintf(fp, "\n");
+	for (int i = 1; i <= 15; i++) {
+		if (i == 1)fprintf(fp, "   %d ", 1);
+		else if (i != 15)
+		{
+			if (i >= 10)
+			{
+				fprintf(fp, " %d ", i);
+			}
+			else
+				fprintf(fp, "  %d ", i);
+		}
+		else  fprintf(fp, " %d \n", i);
+	}
+	for (int i = 0; i < 15; i++)
+	{
+		if (i >= 0&&i<=9)
+			fprintf(fp, "%d ", i);
+		else fprintf(fp, "%d", i);
+		for (int j = 0; j < 15; j++)
+		{
+			
+			if(j!=14)
+			fprintf(fp, "_%c_|", arr[i][j]);
+			else 
+				fprintf(fp, "_%c_", arr[i][j]);
+		}
+		fprintf(fp, "\n");
+	}
+	fclose(fp);
+}
+
 int dian()
 {
 	memset(Score, 0, sizeof(Score));
 	evaluate();
-	int temp = 0;
-	int x, y;
+	int temp = 0, count = 0;
+	int mx, my, nx, ny, x, y;
 	for (int i = 0; i < 15; i++)
 	{
 		for (int j = 0; j < 15; j++)
 		{
-			if (temp < Score[i][j])
+			if (Score[i][j] == -100) continue;
+			else if (0 < Score[i][j])
 			{
-				x = i; y = j;
-				temp = Score[i][j];
+				if (temp < Score[i][j])
+				{
+					mx = i; my = j;
+					temp = Score[i][j];
+				}
+			}
+			else if (0 < Score[i][j])
+			{
+				if (count > Score[i][j])
+				{
+					nx = i; ny = j;
+					count = Score[i][j];
+				}
+			}
+			if (fabs(count) >= temp)
+			{
+				x = nx;
+				y = ny;
+			}
+			else
+			{
+				x = mx;
+				y = my;
 			}
 		}
 	}
@@ -43,8 +111,8 @@ evaluate()
 				{
 					if (m < 0) { m = -1; continue; }
 					else if (m > 15) break;
-					if (arr[i][m] == '*') score += 2;
-					else if (arr[i][m] == ' ') score += 1;
+					if (arr[i][m] == '*') score += 1;
+					else if (arr[i][m] == ' ') score += 0;
 					else score -= 1;
 				}
 				//col
@@ -52,8 +120,8 @@ evaluate()
 				{
 					if (m < 0) { m = -1; continue; }
 					else if (m > 15) break;
-					if (arr[m][j] == '*') score += 2;
-					else if (arr[m][j] == ' ') score += 1;
+					if (arr[m][j] == '*') score += 1;
+					else if (arr[m][j] == ' ') score += 0;
 					else score -= 1;
 				}
 				//na
@@ -63,8 +131,8 @@ evaluate()
 					else if (m > 15) break;
 					for (int n = j - (i - m);;)
 					{
-						if (arr[m][n] == '*') score += 2;
-						else if (arr[m][n] == ' ') score += 1;
+						if (arr[m][n] == '*') score += 1;
+						else if (arr[m][n] == ' ') score += 0;
 						else score -= 1;
 						break;
 					}
@@ -76,15 +144,15 @@ evaluate()
 					else if (m < 0) break;
 					for (int n = j - (i - m);;)
 					{
-						if (arr[m][n] == '*') score += 2;
-						else if (arr[m][n] == ' ') score += 1;
+						if (arr[m][n] == '*') score += 1;
+						else if (arr[m][n] == ' ') score += 0;
 						else score -= 1;
 						break;
 					}
 				}
 				Score[i][j] = score;
 			}
-			else Score[i][j] = -1;
+			else Score[i][j] = -100;
 		}
 	}
 }
@@ -249,6 +317,7 @@ char check(char arr[15][15], int x, int y, int a)
 
 int main()
 {
+	int count = 1;
 	for (int i = 0; i < 15; i++)
 	{
 		for (int j = 0; j < 15; j++)
@@ -257,6 +326,7 @@ int main()
 	jinru();
 jixu:;
 	youxi();
+	jilu(count);
 	for (int i = 0; i < 15; i++)
 	{
 		for (int j = 0; j < 15; j++)
@@ -266,7 +336,11 @@ jixu:;
 	printf("1.是      0.否\n");
 	int i; xuanze:;
 	scanf("%d", &i);
-	if (i == 1) goto jixu;
+	if (i == 1)
+	{
+		count++;
+		goto jixu;
+	}
 	else if (i == 0) exit(0);
 	else
 	{
@@ -339,7 +413,7 @@ youxi()
 
 		//电脑下
 		int c = dian();
-		int q , p;
+		int q, p;
 		q = c - c / 100 * 100;
 		p = c / 100;
 		arr[p][q] = '*';

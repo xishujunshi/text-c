@@ -8,4 +8,4 @@ C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(304,15): warning C410
 C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(300): warning C4715: “jinru”: 不是所有的控件路径都返回值
 C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(90): warning C4716: “evaluate”: 必须返回一个值
 C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(379): warning C4715: “youxi”: 不是所有的控件路径都返回值
-  Project2.vcxproj -> C:\Users\abc\Desktop\新建文件夹\text-c\Project2\Debug\Project2.exe
+LINK : fatal error LNK1104: 无法打开文件“C:\Users\abc\Desktop\新建文件夹\text-c\Project2\Debug\Project2.exe”
