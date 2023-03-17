@@ -1,13 +1,10 @@
 ﻿  zhu.c
-C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(17,4): warning C4033: “jilu”必须返回值
-C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(58,10): warning C4013: “evaluate”未定义；假设外部返回 int
-C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(165,20): warning C4101: “j”: 未引用的局部变量
-C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(326,7): warning C4013: “jinru”未定义；假设外部返回 int
-C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(328,7): warning C4013: “youxi”未定义；假设外部返回 int
-C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(378,12): warning C4101: “e”: 未引用的局部变量
-C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(378,15): warning C4101: “f”: 未引用的局部变量
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(461,15): warning C4244: “return”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(466,12): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 1 拥有了类型“__int64”
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(466,12): message : 请考虑在格式字符串中使用“%lld”
+C:\Users\abc\Desktop\新建文件夹\text-c\Project2\zhu.c(466,12): message : 请考虑在格式字符串中使用“%I64d”
   正在生成代码
-  2 of 14 functions (14.3%) were compiled, the rest were copied from previous compilation.
+  4 of 5 functions (80.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   已完成代码的生成

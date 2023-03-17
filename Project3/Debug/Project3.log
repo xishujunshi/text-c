@@ -1,0 +1,6 @@
+﻿  源.c
+C:\Users\abc\Desktop\新建文件夹\text-c\Project3\源.c(255,14): warning C4013: “gets”未定义；假设外部返回 int
+C:\Users\abc\Desktop\新建文件夹\text-c\Project3\源.c(255,16): warning C4047: “=”:“char *”与“int”的间接级别不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project3\源.c(256,16): warning C4047: “=”:“char *”与“int”的间接级别不同
+C:\Users\abc\Desktop\新建文件夹\text-c\Project3\源.c(258,15): warning C4013: “strlen”未定义；假设外部返回 int
+  Project3.vcxproj -> C:\Users\abc\Desktop\新建文件夹\text-c\Project3\Debug\Project3.exe

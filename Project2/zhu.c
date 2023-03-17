@@ -451,3 +451,18 @@ youxi()
 	} while (1);
 out:;
 }
+#include <stdio.h>
+long long sum;
+int fib(int c)
+{
+    if (c == 1 || c == 2)
+        return 1;
+    sum = fib(c - 1) + fib(c - 2);
+    return sum;
+}
+int main()
+{
+    long long c = fib(10000);
+    printf("%ld", c);
+    return 0;
+}
