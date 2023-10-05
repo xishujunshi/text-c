@@ -1,0 +1,5 @@
+﻿  paixu.c
+C:\Users\abc\Desktop\新建文件夹\text-c\july\paixu.c(273,12): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 1 拥有了类型“__int64”
+C:\Users\abc\Desktop\新建文件夹\text-c\july\paixu.c(273,12): message : 请考虑在格式字符串中使用“%lld”
+C:\Users\abc\Desktop\新建文件夹\text-c\july\paixu.c(273,12): message : 请考虑在格式字符串中使用“%I64d”
+  july.vcxproj -> C:\Users\abc\Desktop\新建文件夹\text-c\july\Debug\july.exe
