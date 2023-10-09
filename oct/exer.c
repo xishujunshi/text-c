@@ -198,3 +198,40 @@
 //	prin(top);
 //	return 0;
 //}
+
+void insert(int a[], int* pre, int* next,int length) {
+	if (*next == *pre - 1) {
+		printf("Пе");
+		return;
+	}
+	if ((*next + length - 1) % (length) == *pre % length) {
+		printf("Тњ");
+		return;
+	}
+	scanf_s("%d", &a[*pre]);
+	(*pre)++;
+}
+
+void delect(int a[], int* pre, int* next,int length) {
+	if (*next == *pre - 1) {
+		printf("Пе");
+		return;
+	}
+	if ((*next + length - 1) % (length) == *pre % length) {
+		printf("Тњ");
+		return;
+	}
+	a[*next] = 0;
+	(*next)++;
+}
+
+int main() {
+	int a[5] = { " ",1,2,3,4};
+	int pre = sizeof(a) / sizeof(int);
+	int next = 1;
+	int length = sizeof(a) / sizeof(int);
+	insert(&a, &pre, &next, length);
+	delect(&a, &pre, &next, length);
+	
+	return 0;
+}

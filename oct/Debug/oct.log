@@ -1,3 +1,7 @@
 ﻿  exer.c
-C:\Users\abc\Desktop\gitee\oct\exer.c(93,9): warning C4101: “j”: 未引用的局部变量
+C:\Users\abc\Desktop\gitee\oct\exer.c(233,11): warning C4047: “函数”:“int *”与“int (*)[5]”的间接级别不同
+C:\Users\abc\Desktop\gitee\oct\exer.c(233,9): warning C4024: “insert”: 形参和实参 1 的类型不同
+C:\Users\abc\Desktop\gitee\oct\exer.c(234,11): warning C4047: “函数”:“int *”与“int (*)[5]”的间接级别不同
+C:\Users\abc\Desktop\gitee\oct\exer.c(234,9): warning C4024: “delect”: 形参和实参 1 的类型不同
+C:\Users\abc\Desktop\gitee\oct\exer.c(229,1): warning C4047: “初始化”:“int”与“char [2]”的间接级别不同
   oct.vcxproj -> C:\Users\abc\Desktop\gitee\oct\Debug\oct.exe
