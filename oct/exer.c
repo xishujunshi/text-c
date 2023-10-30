@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<math.h>
 
 //#define maxsize 100
 //
@@ -112,7 +113,7 @@
 //
 //	return 0;
 //}
-
+//
 //typedef struct ListNode {
 //	struct ListNode* pre;
 //	int val;
@@ -198,40 +199,120 @@
 //	prin(top);
 //	return 0;
 //}
+//
+//void insert(int a[], int* pre, int* next,int length) {
+//	if (*next == *pre - 1) {
+//		printf("空");
+//		return;
+//	}
+//	if ((*next + length - 1) % (length) == *pre % length) {
+//		printf("满");
+//		return;
+//	}
+//	scanf_s("%d", &a[*pre]);
+//	(*pre)++;
+//}
+//
+//void delect(int a[], int* pre, int* next,int length) {
+//	if (*next == *pre - 1) {
+//		printf("空");
+//		return;
+//	}
+//	if ((*next + length - 1) % (length) == *pre % length) {
+//		printf("满");
+//		return;
+//	}
+//	a[*next] = 0;
+//	(*next)++;
+//}
+//
+//int main() {
+//	int a[5] = { " ",1,2,3,4};
+//	int pre = sizeof(a) / sizeof(int);
+//	int next = 1;
+//	int length = sizeof(a) / sizeof(int);
+//	insert(&a, &pre, &next, length);
+//	delect(&a, &pre, &next, length);
+//	
+//	return 0;
+//}
 
-void insert(int a[], int* pre, int* next,int length) {
-	if (*next == *pre - 1) {
-		printf("空");
-		return;
-	}
-	if ((*next + length - 1) % (length) == *pre % length) {
-		printf("满");
-		return;
-	}
-	scanf_s("%d", &a[*pre]);
-	(*pre)++;
-}
-
-void delect(int a[], int* pre, int* next,int length) {
-	if (*next == *pre - 1) {
-		printf("空");
-		return;
-	}
-	if ((*next + length - 1) % (length) == *pre % length) {
-		printf("满");
-		return;
-	}
-	a[*next] = 0;
-	(*next)++;
-}
-
+typedef struct treeNode {
+	struct treeNode* left;
+	struct treeNode* right;
+	char date;
+}TN;
 int main() {
-	int a[5] = { " ",1,2,3,4};
-	int pre = sizeof(a) / sizeof(int);
-	int next = 1;
-	int length = sizeof(a) / sizeof(int);
-	insert(&a, &pre, &next, length);
-	delect(&a, &pre, &next, length);
-	
+	TN* head = { NULL };
+	create(head);
+	int sum = num(head);
+	printf("%d", sum);
+
 	return 0;
+
 }
+
+create(TN* T)
+{
+	char a;
+	scanf_s("%c", &a);
+	if (a == '#')
+		T = NULL;
+	else
+	{
+		T = (TN*)malloc(sizeof(TN));
+		T->date= a;
+		create(T->left);
+		create(T->right);
+	}
+}
+
+int num(TN* root) {
+	if (root->left == NULL && root->right == NULL) {
+		return 1;
+	}
+	int left = num(root->left);
+	int right = num(root->right);
+	return 1 + left + right;
+}
+
+//int depth(TN* root) {
+//	if (root->left == NULL && root->right == NULL) {
+//		return 0;
+//	}
+//	int left = depth(root->left);
+//	int right = depth(root->right);
+//	return 1 + Max(left,right);
+//}
+//void copy(TN* root,TN* new) {
+//	if (root->left == NULL && root->right == NULL) {
+//		
+//		return;
+//	}
+//
+//	int left = depth(root->left);
+//	int right = depth(root->right);
+//	return 1 + Max(left, right);
+//}
+//TN* copybtree(TN* root)
+//{
+//	TN* newnode;
+//
+//	if (root == NULL)
+//	{
+//		return NULL;
+//	}
+//	else
+//	{
+//		//创建新节点
+//		newnode = (TN*)malloc(sizeof(TN));
+//		//复制节点内容
+//		newnode->date = root->date;
+//		//复制左子树
+//		newnode->left = copybtree(root->left);
+//		//复制右子树
+//		newnode->right = copybtree(root->right);
+//		//以上两行代码先创建左子树再创建右子树，如果顺序颠倒其创建的顺序就会颠倒，但是最终创建的二叉树还是一样的
+//		return newnode;
+//	}
+//}
