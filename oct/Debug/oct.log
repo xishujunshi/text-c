@@ -1,10 +1,9 @@
 ﻿  exer.c
-C:\Users\abc\Desktop\gitee\oct\exer.c(247,19): warning C4013: “create”未定义；假设外部返回 int
+C:\Users\abc\Desktop\gitee\oct\exer.c(247,15): warning C4013: “create”未定义；假设外部返回 int
+C:\Users\abc\Desktop\gitee\oct\exer.c(247,21): warning C4047: “=”:“TN *”与“int”的间接级别不同
 C:\Users\abc\Desktop\gitee\oct\exer.c(248,15): warning C4013: “num”未定义；假设外部返回 int
-C:\Users\abc\Desktop\gitee\oct\exer.c(247,1): warning C4047: “初始化”:“TN *”与“int”的间接级别不同
+C:\Users\abc\Desktop\gitee\oct\exer.c(250,20): warning C4013: “depth”未定义；假设外部返回 int
 C:\Users\abc\Desktop\gitee\oct\exer.c(255,5): error C2040: “create”:“TN *(TN *)”与“int ()”的间接寻址级别不同
-C:\Users\abc\Desktop\gitee\oct\exer.c(258,10): warning C4473: “scanf_s”: 没有为格式字符串传递足够的参数
-C:\Users\abc\Desktop\gitee\oct\exer.c(258,10): message : 占位符和其参数预计 2 可变参数，但提供的却是 1 参数
-C:\Users\abc\Desktop\gitee\oct\exer.c(258,10): message : 缺失的可变参数 2 为格式字符串“%c”所需
-C:\Users\abc\Desktop\gitee\oct\exer.c(258,10): message : 此参数用作缓冲区大小
 C:\Users\abc\Desktop\gitee\oct\exer.c(263,18): warning C4013: “malloc”未定义；假设外部返回 int
+C:\Users\abc\Desktop\gitee\oct\exer.c(265,28): warning C4047: “=”:“treeNode *”与“int”的间接级别不同
+C:\Users\abc\Desktop\gitee\oct\exer.c(266,30): warning C4047: “=”:“treeNode *”与“int”的间接级别不同

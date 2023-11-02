@@ -236,64 +236,57 @@
 //	
 //	return 0;
 //}
-
-typedef struct treeNode {
-	struct treeNode* left;
-	struct treeNode* right;
-	char date;
-}TN;
-int main() {
-	TN* head = { NULL };
-	create(head);
-	int sum = num(head);
-	printf("%d", sum);
-
-	return 0;
-
-}
-
-create(TN* T)
-{
-	char a;
-	scanf_s("%c", &a);
-	if (a == '#')
-		T = NULL;
-	else
-	{
-		T = (TN*)malloc(sizeof(TN));
-		T->date= a;
-		create(T->left);
-		create(T->right);
-	}
-}
-
-int num(TN* root) {
-	if (root->left == NULL && root->right == NULL) {
-		return 1;
-	}
-	int left = num(root->left);
-	int right = num(root->right);
-	return 1 + left + right;
-}
-
+//
+//typedef struct treeNode {
+//	struct treeNode* left;
+//	struct treeNode* right;
+//	char date;
+//}TN;
+//int main() {
+//	TN* head;
+//	head = create(head);
+//	int sum = num(head);
+//	printf("%d", sum);
+//	int depth1 = depth(head);
+//	return 0;
+//
+//}
+//
+//TN* create(TN* T)
+//{
+//	char a;
+//	a=getchar();
+//	if (a == '#')
+//		T = NULL;
+//	else
+//	{
+//		T = (TN*)malloc(sizeof(TN));
+//		T->date= a;
+//		T->left = create(T->left);
+//		T->right = create(T->right);
+//	}
+//	return T;
+//}
+//
+//int num(TN* root) {
+//	if (root==NULL) {
+//		return 0;
+//	}
+//	int left = num(root->left);
+//	int right = num(root->right);
+//	return 1 + left + right;
+//}
+//
 //int depth(TN* root) {
 //	if (root->left == NULL && root->right == NULL) {
 //		return 0;
 //	}
 //	int left = depth(root->left);
 //	int right = depth(root->right);
-//	return 1 + Max(left,right);
+//	return 1 + (left>right?left:right);
 //}
-//void copy(TN* root,TN* new) {
-//	if (root->left == NULL && root->right == NULL) {
-//		
-//		return;
-//	}
 //
-//	int left = depth(root->left);
-//	int right = depth(root->right);
-//	return 1 + Max(left, right);
-//}
+//
 //TN* copybtree(TN* root)
 //{
 //	TN* newnode;
@@ -316,3 +309,4 @@ int num(TN* root) {
 //		return newnode;
 //	}
 //}
+
