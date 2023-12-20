@@ -59,8 +59,7 @@ void roa(int i) {
 		roa(pre[i]);
 		printf("%d", pre[i]);
 	}
-	else {/*
-		printf("%d", pre[i]);*/
+	else {
 		return;
 	}
 }
@@ -105,7 +104,7 @@ int main() {
 	int ori = 0;
 	printf("«Î ‰»Î∆µ„£°£°£°\n");
 	scanf_s("%d", &ori);
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < 10; i++) {   
 		dis[i] = gp[ori][i];
 		if (gp[ori][i] != 100) 
 			pre[i] = ori;
