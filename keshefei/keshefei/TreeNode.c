@@ -11,160 +11,160 @@
 //（5）实现在指定位置插入和删除元素的功能。
 
 typedef struct ListNode {
-	int date;
-	struct ListNode* next;
-}list;
+    int data;
+    struct ListNode* next;
+} list;
 
-//创建
-list* createlist(int num, list* root) {
-	list* temp = (list*)malloc(sizeof(list));  // 为新的节点分配内存
-	temp->date = num;
-	temp->next = NULL;
-	root->next = temp;
-	return temp;
+// 遍历链表
+void readList(list* root) {
+    list* current = root;
+    while (current != NULL) {
+        printf("%d ", current->data);
+        current = current->next;
+    }
 }
 
-//遍历
-void readlist(list* root) {
-	if (root != NULL) {
-		printf("%d ", root->date);
-		readlist(root->next);
-	}
+// 读取指定范围内的数据
+void readRange(int min, int max, list* root) {
+    list* current = root;
+    while (current != NULL) {
+        if (current->data > min && current->data < max) {
+            printf("%d ", current->data);
+        }
+        current = current->next;
+    }
 }
 
-//读取指定位置的数据
-void readone(int min,int max,list* root) {
-	if (root != NULL) {
-		if(root->date<max&&root->date>min)  printf("%d ", root->date);
-		readone(min, max, root->next);
-	}
- }
-
-//修改数据
-void changeone(int min, int max, list* root) {
-	if (root != NULL) {
-		
-		if (root->date<max && root->date>min) {
-			int num = 0;
-			printf("现在修改的是值为%d",root->date);
-			printf("请输入要修改的数！！！");
-			scanf_s("%d", &num);
-			root->date = num;
-		}
-		changeone(min, max, root->next);
-	}
+// 修改指定范围内的数据
+void changeRange(int min, int max, list* root) {
+    list* current = root;
+    while (current != NULL) {
+        if (current->data > min && current->data < max) {
+            int num = 0;
+            printf("当前要修改的值为%d，请输入要修改的数：", current->data);
+            scanf("%d", &num);
+            current->data = num;
+        }
+        current = current->next;
+    }
 }
 
-//插入数据
-void insertone(int filed, list* root) {
-	filed--;
-	if (root != NULL) {
-		insertone(filed, root->next);
-		if (filed == 0) {
-			int num = 0;
-			printf("请输入插入数据的数值！！！\n");
-			scanf_s("%d", &num);
-			if (root->next == NULL) {
-				list* temp = (list*)malloc(sizeof(list));
-				temp->date = num;
-				temp->next = NULL;
-				root->next = temp;
-			}
-			else {
-				list* temp = (list*)malloc(sizeof(list));
-				list* pre = root->next;
-				temp->next = pre;
-				temp->date = num;
-				root->next = temp;
-			}
-		}
-		return;
-	}
+// 在指定位置插入数据
+void insertAt(int position, list* root) {
+    list* current = root;
+    for (int i = 1; i < position; i++) {
+        if (current == NULL) {
+            printf("插入位置超出链表长度！");
+            return;
+        }
+        current = current->next;
+    }
+
+    int num = 0;
+    printf("请输入要插入的数值：");
+    scanf("%d", &num);
+
+    list* newNode = (list*)malloc(sizeof(list));
+    newNode->data = num;
+    newNode->next = current->next;
+    current->next = newNode;
 }
 
-//删除数据
-void delone(int filed, list* root) {
-	filed--;
-	if (root != NULL) {
-		if (filed == 0) {
-			if (root->next == NULL||root->next->next==NULL) {
-				root->next = NULL;
-			}
-			else {
-			//delone(filed, root->next);
-				root->next = root->next->next;
-			}
-		}
-		else
-			delone(filed, root->next);
-	}
+// 删除指定位置的数据
+void deleteAt(int position, list* root) {
+    list* current = root;
+    for (int i = 1; i < position; i++) {
+        if (current == NULL || current->next == NULL) {
+            printf("删除位置超出链表长度！");
+            return;
+        }
+        current = current->next;
+    }
+
+    list* deletedNode = current->next;
+    current->next = current->next->next;
+    free(deletedNode);
+}
+
+
+// 创建指定长度的链表
+list* create(int length) {
+    list* head = (list*)malloc(sizeof(list));
+    list* current = head;
+    printf("接下来请输入数据来创建线性表！！！\n");
+    for (int i = 0; i < length; i++) {
+        int num;
+        scanf("%d", &num);
+
+        current->data = num;
+        if (i < length - 1) {
+            current->next = (list*)malloc(sizeof(list));
+            current = current->next;
+        }
+        else {
+            current->next = NULL;
+        }
+    }
+    return head;
 }
 
 
 int main() {
-	list dummy = { 0 ,NULL};//头节点
-	list* head = &dummy;//head永远指向头节点
-	int num = 0;//读取数据
-	int sum = 0;//总数
+    int length;
+    printf("请输入要创建的线性表长度：");
+    scanf("%d", &length);
 
-	printf("请输入数据，并且以-1为结束标志！！！\n");
-	list* temp = head;
-	//创建链表
-	while (1) {
-		scanf_s("%d", &num);
-		getchar();
-		if (num == -1) break;
-		temp = createlist(num,temp);
-		sum ++;
-	}
-	printf("创建的线性表的长度为：%d\n", sum);
-	//循环读取链表
-	readlist(head->next);
+    list* head = create(length);
+    printf("创建的线性表为：");
+    readList(head);
+    printf("\n");
+
+    // 释放链表内存
+    list* current = head;
 
 
-	
+    // 读取和修改指定范围的数据
+    int left = 0, right = 0;
+    printf("请输入要读取数据的范围，例如：30，80或者70，20：\n");
+    scanf("%d,%d", &left, &right);
+    if (left > right) {
+        int temp = left;
+        left = right;
+        right = temp;
+    }
+    printf("大于%d且小于%d的数据为：", left, right);
+    readRange(left, right, head);
+    printf("\n");
 
-	//读取和修改  根据指定条件
-	printf("\n请输入要读取数据的范围，例如：30，80或者70，20！！！\n");
-	int left = 0, right = 100;
-	scanf_s("%d,%d", &left, &right);
-	if (left > right) {
-		int temp = left;
-		left = right;
-		right = temp;
-	}
-	printf("大于%d且小于%d的数据为：", left, right);
-	readone(left, right, head->next);
+    printf("请输入要修改数据的范围，例如：30，80或者70，20：\n");
+    scanf("%d,%d", &left, &right);
+    if (left > right) {
+        int temp = left;
+        left = right;
+        right = temp;
+    }
+    changeRange(left, right, head);
+    printf("修改之后的数据为：");
+    readList(head);
+    printf("\n");
 
+    // 指定位置插入数据
+    int position = 0;
+    printf("请输入要插入的数据的位置：\n");
+    scanf("%d", &position);
+    insertAt(position, head);
+    printf("插入后的线性表的长度为：%d\n", ++length);
+    printf("修改后的线性表为：");
+    readList(head);
+    printf("\n");
 
+    // 删除指定位置的数据
+    printf("请输入要删除的数据的位置：\n");
+    scanf("%d", &position);
+    deleteAt(position, head);
+    printf("删除后的线性表的长度为：%d\n", ++length);
+    printf("删除后的线性表为：");
+    readList(head);
 
-	printf("\n请输入要修改数据的范围，例如：30，80或者70，20！！！\n");
-	left = 0;
-	right = 100;
-	scanf_s("%d,%d", &left, &right);
-	if (left > right) {
-		int temp = left;
-		left = right;
-		right = temp;
-	}
-	changeone(left, right, head->next);
-	printf("修改之后的数据为：");
-	readlist(head->next);
-
-	//指定位置的数据
-	int filed = 0;
-
-	//插入
-	printf("\n请输入要插入的数据的位置！！！\n");
-	scanf_s("%d", &filed);
-	insertone(filed, head);
-	readlist(head->next);
-	
-	//删除
-	printf("\n请输入要删除的数据的位置！！！\n");
-	scanf_s("%d", &filed);
-	delone(filed, head);
-	readlist(head->next);
-
-	return 0;
+    return 0;
 }

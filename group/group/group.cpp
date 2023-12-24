@@ -1,116 +1,158 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 
-int gp[10][10] = { 0 };//图
-int vis[10];//判断是否读取
-int pre[10];//存储上一个节点
-int dis[10];//存储最短路径
+// 定义结构体
+struct {
+    int** gp; // 图
+    int* vis; // 判断是否读取
+    int* pre; // 存储上一个节点
+    int* dis; // 存储最短路径
+} group;
 
-//创建
-void create() {
-	int rowq, b, length;
-	printf("请输入两个顶点及权值！\n");
-	scanf_s("%d %d %d", &rowq, &b, &length);
-	gp[rowq][b] = length;
-	gp[b][rowq] = length;
+// 创建
+void create(int dian, int bian)
+{
+    // 动态分配内存给 gp 数组，并初始化所有元素为 100
+    group.gp = (int**)malloc(dian * sizeof(int*));
+    for (int i = 0; i < dian; i++)
+    {
+        group.gp[i] = (int*)malloc(dian * sizeof(int));
+        for (int j = 0; j < dian; j++)
+        {
+            group.gp[i][j] = 100;
+        }
+    }
+
+    int row, col, length;
+    printf("请输入每条边对应的两个顶点及权值！\n");
+    for (int i = 1; i <= bian; i++)
+    {
+        printf("请输入第 %d 条边：", i);
+        scanf("%d %d %d", &row, &col, &length);
+        group.gp[row][col] = length;
+        group.gp[col][row] = length;
+    }
 }
 
-//遍历读取
-void read() {
-	for (int i = 0; i < 10; i++) {
-		for (int j = 0; j < 10; j++) {
-			printf("%d ", gp[i][j]);
-		}
-		printf("\n");
-	}
+// 遍历读取
+void read(int dian)
+{
+    for (int i = 0; i < dian; i++)
+    {
+        for (int j = 0; j < dian; j++)
+        {
+            if (group.gp[i][j] == 100)
+                printf("0 ");
+            else
+            printf("%d ", group.gp[i][j]);
+        }
+        printf("\n");
+    }
 }
 
-//迪杰斯特拉算法
-void shortest(int ori) {
-	vis[ori] = 1;
-	for (int i = 0; i < 10; i++) {
-		//找最短路径，并且进行替换
-		if (dis[ori] + gp[ori][i] < dis[i]) {
-			dis[i] = dis[ori] + gp[ori][i];
-			pre[i] = ori;//找到的话，存储前驱节点
-		}
-	}
-	//找最小值的下标
-	int flag = ori;
-	int min = 100;
-	for (int i = 0; i < 10; i++) {
-		if (min > gp[ori][i] && vis[i] == 0 ) {
-			flag = i;
-			min = gp[ori][i];
-		}
-	}
-	if(flag!=ori)
-	shortest(flag);
-	for (int i = 0; i < 10; i++) {
-		if (vis[i] == 0 && gp[ori][i] < 100)
-			shortest(i);
-	}
+// 迪杰斯特拉算法
+void shortest(int ori, int dian)
+{
+    group.vis[ori] = 1;
+    for (int i = 0; i < dian; i++)
+    {
+        // 找最短路径，并且进行替换
+        if (group.dis[ori] + group.gp[ori][i] < group.dis[i])
+        {
+            group.dis[i] = group.dis[ori] + group.gp[ori][i];
+            group.pre[i] = ori; // 找到的话，存储前驱节点
+        }
+    }
+    // 找最小值的下标
+    int flag = ori;
+    int min = 100;
+    for (int i = 0; i < dian; i++)
+    {
+        if (min > group.gp[ori][i] && group.vis[i] == 0)
+        {
+            flag = i;
+            min = group.gp[ori][i];
+        }
+    }
+    if (flag != ori)
+        shortest(flag, dian);
+    for (int i = 0; i < dian; i++)
+    {
+        if (group.vis[i] == 0 && group.gp[ori][i] < 100)
+            shortest(i, dian);
+    }
 }
 
-//输出路径
-void roa(int i) {
-	if (pre[i] != -1) {
-		roa(pre[i]);
-		printf("%d", pre[i]);
-	}
-	else {
-		return;
-	}
+// 输出路径
+void roa(int i)
+{
+    if (group.pre[i] != -1)
+    {
+        roa(group.pre[i]);
+        printf("%d  ", group.pre[i]);
+    }
+    else
+    {
+        return;
+    }
 }
 
-//最短路径
-void road(int ori) {
-	for (int i = 0; i < 10; i++) {
-		if (i == ori) continue;
-		printf("%d到%d的最短路径长度为：%d  路径为：", ori, i, dis[i]);
-		roa(i);
-		printf("%d", i);
-		printf("\n");
-	}
+// 最短路径
+void road(int ori, int dian)
+{
+    for (int i = 0; i < dian; i++)
+    {
+        if (i == ori)
+            continue;
+        printf("%d到%d的最短路径长度为：%d  路径为：", ori, i, group.dis[i]);
+        roa(i);
+        printf("%d", i);
+        printf("\n");
+    }
 }
 
-int main() {
-	
-	//创建
-	for (int i = 0; i < 10; i++) {
-		for (int j = 0; j < 10; j++) {
-			gp[i][j] = 100;
-		}
-	}
-	{
-	while (1) {
-		int flag = 0;
-		printf("请输入数字来决定你是否要继续创建表！");
-		scanf_s("%d", &flag);
-		if (flag) create();
-		else break;
-	}
-	read();
-}
-	
-	{//初始化
-		memset(vis, 0, sizeof(vis));//初始化已访问数组，0为未访问
-		memset(dis, 100, sizeof(dis));//初始化最短路径数组，默认最大为100
-		memset(pre, -1, sizeof(pre));//存储前一个结点，默认为-1，-1为无前驱节点
-	}
+// 主函数
+int main()
+{
+    int dian, bian;
+    printf("请输入顶点个数和边的条数：");
+    scanf("%d %d", &dian, &bian);
 
-	//输入起点来计算最短路径
-	int ori = 0;
-	printf("请输入起点！！！\n");
-	scanf_s("%d", &ori);
-	for (int i = 0; i < 10; i++) {   
-		dis[i] = gp[ori][i];
-		if (gp[ori][i] != 100) 
-			pre[i] = ori;
-	}
-	dis[ori] = 0;
-	//迪杰斯特拉算法
-	shortest(ori);
-	road(ori);
+    // 创建
+    create(dian, bian);
+
+    // 遍历读取
+    read(dian);
+
+    // 初始化
+    group.vis = (int*)malloc(dian * sizeof(int)); // 初始化已访问数组，0为未访问
+    memset(group.vis, 0, sizeof(int) * dian);
+    group.dis = (int*)malloc(dian * sizeof(int)); // 初始化最短路径数组，默认最大为100
+    memset(group.dis, 100, sizeof(int) * dian);
+    group.pre = (int*)malloc(dian * sizeof(int)); // 存储前一个结点，默认为-1，-1为无前驱节点
+    memset(group.pre, -1, sizeof(int) * dian);
+
+    // 输入起点来计算最短路径
+    int ori = 0;
+    printf("请输入起点！！！\n");
+    scanf("%d", &ori);
+    //根据起点来更新dis数组
+    for (int i = 0; i < dian; i++)
+    {
+        group.dis[i] = group.gp[ori][i];
+        if (group.gp[ori][i] != 100)
+            group.pre[i] = ori;
+    }
+    group.dis[ori] = 0;
+
+    // 迪杰斯特拉算法
+    shortest(ori, dian);
+
+    // 输出最短路径
+    road(ori, dian);
+
+    return 0;
 }
