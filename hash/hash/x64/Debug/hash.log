@@ -1,0 +1,3 @@
+﻿  hasha.c
+C:\Users\abc\Desktop\gitee\hash\hash\hasha.c(18,13): warning C4047: “==”:“int”与“void *”的间接级别不同
+  hash.vcxproj -> C:\Users\abc\Desktop\gitee\hash\x64\Debug\hash.exe
